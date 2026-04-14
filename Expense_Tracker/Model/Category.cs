@@ -1,4 +1,6 @@
-﻿namespace Expense_Tracker.Model
+﻿using ExpenseTracker.API.Models;
+
+namespace Expense_Tracker.Model
 {
     public class Category
     {
@@ -6,6 +8,6 @@
 
         public string Name { get; set; }
 
-        //public List<Expense> Expenses { get; set; }
+        public List<Expense> Expenses { get; set; }
     }
 }

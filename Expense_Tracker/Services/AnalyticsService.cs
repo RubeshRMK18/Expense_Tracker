@@ -1,5 +1,6 @@
 ﻿using Expense_Tracker.Data;
 using Expense_Tracker.DTO;
+using Microsoft.EntityFrameworkCore;
 
 namespace Expense_Tracker.Services
 {
@@ -31,7 +32,6 @@ namespace Expense_Tracker.Services
                 };
             }
 
-            // 📊 Daily Average
             var total = expenses.Sum(e => e.Amount);
             var minDate = expenses.Min(e => e.Date);
             var maxDate = expenses.Max(e => e.Date);
@@ -40,14 +40,15 @@ namespace Expense_Tracker.Services
             var dailyAvg = days > 0 ? total / days : total;
 
             var topCategory = expenses
-                .GroupBy(e => e.Category)
-                .Select(g => new
-                {
-                    Category = g.Key,
-                    Total = g.Sum(x => x.Amount)
-                })
-                .OrderByDescending(x => x.Total)
-  
+                  .GroupBy(e => e.Category)
+                   .Select(g => new
+         {
+          Category = g.Key,
+          Total = g.Sum(x => x.Amount)
+           })
+         .OrderByDescending(x => x.Total)
+      .FirstOrDefault();
+
             var currentMonth = DateTime.Now.Month;
             var currentYear = DateTime.Now.Year;
 
@@ -64,13 +65,13 @@ namespace Expense_Tracker.Services
             string trend;
 
             if (currentMonthTotal > lastMonthTotal)
-                trend = "Increasing 📈";
+                trend = "Increasing ";
             else if (currentMonthTotal < lastMonthTotal)
-                trend = "Decreasing 📉";
+                trend = "Decreasing ";
             else
-                trend = "Stable ➖";
+                trend = "Stable";
 
-            // ⚠️ Insight
+        
             string insight;
 
             if (dailyAvg > 1000)
