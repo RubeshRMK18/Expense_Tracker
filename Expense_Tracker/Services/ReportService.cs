@@ -13,7 +13,7 @@ namespace Expense_Tracker.Services
             _context = context;
         }
 
-        // 📊 Monthly Report
+
         public async Task<List<ReportResponseDTO>> GetMonthlyReport(int userId)
         {
             return await _context.Expenses
@@ -28,7 +28,7 @@ namespace Expense_Tracker.Services
                 .ToListAsync();
         }
 
-        // 📊 Category Report
+
         public async Task<List<ReportResponseDTO>> GetCategoryReport(int userId)
         {
             return await _context.Expenses
@@ -42,7 +42,7 @@ namespace Expense_Tracker.Services
                 .ToListAsync();
         }
 
-        // ⚠️ Summary + Insight
+
         public async Task<SummaryDTO> GetSummary(int userId)
         {
             var expenses = await _context.Expenses
