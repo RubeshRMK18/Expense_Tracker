@@ -1,24 +1,18 @@
 ﻿using Expense_Tracker.Model;
 
-namespace ExpenseTracker.API.Models
+public class Expense
 {
-    public class Expense
-    {
-        public int ExpenseId { get; set; }
-        public int UserId { get; set; }
-        public int CategoryId { get; set; }
-        public decimal Amount { get; set; }
-        public DateTime Date { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
-        public string Description { get; set; }
-        public bool IsRecurring { get; set; } = false;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public int ExpenseId { get; set; }
+    public int UserId { get; set; }
+    public int CategoryId { get; set; }
+    public decimal Amount { get; set; }
+    public DateTime Date { get; set; }
+    public string PaymentMethod { get; set; }
+    public string Description { get; set; }
+    public bool IsRecurring { get; set; } = false;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public User User { get; set; }
-        public Category Category { get; set; }
-        public Receipt Receipt { get; set; }        // nullable
-        public ReimbursementRequest ReimbursementRequest { get; set; }        // nullable
-    }
-
-    public enum PaymentMethod { Cash, Card, UPI, BankTransfer, Other }
+    public User User { get; set; }
+    public Category Category { get; set; }
+    public Receipt Receipt { get; set; }
 }
