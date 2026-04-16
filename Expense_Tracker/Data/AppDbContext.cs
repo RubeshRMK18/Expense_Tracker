@@ -1,6 +1,7 @@
 using ExpenseTracker.API.Models;
 using Expense_Tracker.Model;
 using Microsoft.EntityFrameworkCore;
+using ExpenseTracker.Models;
 
 namespace Expense_Tracker.Data
 {
@@ -15,6 +16,8 @@ namespace Expense_Tracker.Data
         public DbSet<Budget> Budgets { get; set; }
         public DbSet<ReimbursementRequest> ReimbursementRequests { get; set; }
         public DbSet<Report> Reports { get; set; }
+        public DbSet<BudgetAlert> BudgetAlerts { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -65,6 +68,17 @@ namespace Expense_Tracker.Data
     
             modelBuilder.Entity<Expense>()
                 .HasIndex(e => new { e.UserId, e.Date });
+
+
+            modelBuilder.Entity<Category>().HasData(
+                new Category { CategoryId = 1, Name = "Food", Color = "#FF6B6B", Icon = "🍔", IsDefault = true },
+                new Category { CategoryId = 2, Name = "Transport", Color = "#4ECDC4", Icon = "🚗", IsDefault = true },
+                new Category { CategoryId = 3, Name = "Healthcare", Color = "#45B7D1", Icon = "💊", IsDefault = true },
+                new Category { CategoryId = 4, Name = "Entertainment", Color = "#96CEB4", Icon = "🎬", IsDefault = true },
+                new Category { CategoryId = 5, Name = "Shopping", Color = "#FFEAA7", Icon = "🛍️", IsDefault = true },
+                new Category { CategoryId = 6, Name = "Bills", Color = "#DDA0DD", Icon = "📄", IsDefault = true },
+                new Category { CategoryId = 7, Name = "Uncategorized", Color = "#BDC3C7", Icon = "📁", IsDefault = true }
+
         }
     }
 }
