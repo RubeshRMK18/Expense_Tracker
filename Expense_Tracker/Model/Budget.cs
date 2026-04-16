@@ -1,18 +1,17 @@
-﻿using ExpenseTracker.API.Models;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Expense_Tracker.Model
 {
     public class Budget
     {
+        [Key]
         public int BudgetId { get; set; }
         public int UserId { get; set; }
         public int CategoryId { get; set; }
-        public decimal LimitAmount { get; set; }
-        public BudgetPeriod Period { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public string Month { get; set; } = string.Empty;
+        public decimal BudgetLimit { get; set; }
 
-        public User User { get; set; }
-        public Category Category { get; set; }
+        public User? User { get; set; }
+        public Category? Category { get; set; }
     }
 }
-public enum BudgetPeriod { Monthly, Quarterly, Yearly }

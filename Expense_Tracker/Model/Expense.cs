@@ -15,4 +15,5 @@ public class Expense
     public User User { get; set; }
     public Category Category { get; set; }
     public Receipt Receipt { get; set; }
+    public Guid SplitGroupId { get; internal set; }
 }
