@@ -1,6 +1,5 @@
 ﻿using Expense_Tracker.Data;
 using Expense_Tracker.Model;
-using ExpenseTracker.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Expense_Tracker.Services
@@ -135,4 +134,5 @@ namespace Expense_Tracker.Services
             await _context.SaveChangesAsync();
         }
     }
+
 }
