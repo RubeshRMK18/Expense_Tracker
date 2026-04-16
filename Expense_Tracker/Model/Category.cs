@@ -1,4 +1,4 @@
-﻿using Expense_Tracker.Model;
+using Expense_Tracker.Model;
 using System.ComponentModel.DataAnnotations;
 
 namespace ExpenseTracker.Models
@@ -17,4 +17,5 @@ namespace ExpenseTracker.Models
         public ICollection<Expense> Expenses { get; set; } = new List<Expense>();
         public ICollection<Budget> Budgets { get; set; } = new List<Budget>();
     }
+  
 }
