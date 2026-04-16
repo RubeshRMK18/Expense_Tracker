@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.API.Models;
+﻿using Expense_Tracker.Model;
+using ExpenseTracker.API.Models;
 
 public class User
 {
@@ -10,6 +11,8 @@ public class User
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public ICollection<Expense> Expenses { get; set; }
+
+    public ICollection<Budget> Budgets { get; set; }
 }
 
 

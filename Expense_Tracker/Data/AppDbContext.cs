@@ -1,4 +1,3 @@
-using ExpenseTracker.API.Models;
 using Expense_Tracker.Model;
 using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Models;
@@ -14,8 +13,6 @@ namespace Expense_Tracker.Data
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<Receipt> Receipts { get; set; }
         public DbSet<Budget> Budgets { get; set; }
-        public DbSet<ReimbursementRequest> ReimbursementRequests { get; set; }
-        public DbSet<Report> Reports { get; set; }
         public DbSet<BudgetAlert> BudgetAlerts { get; set; }
 
 
@@ -70,6 +67,7 @@ namespace Expense_Tracker.Data
                 new Category { CategoryId = 5, Name = "Shopping", Color = "#FFEAA7", Icon = "🛍️", IsDefault = true },
                 new Category { CategoryId = 6, Name = "Bills", Color = "#DDA0DD", Icon = "📄", IsDefault = true },
                 new Category { CategoryId = 7, Name = "Uncategorized", Color = "#BDC3C7", Icon = "📁", IsDefault = true }
+            );
 
         }
     }
