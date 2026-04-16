@@ -55,15 +55,7 @@ namespace Expense_Tracker.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
          
-            modelBuilder.Entity<ReimbursementRequest>()
-                .HasOne(r => r.Expense)
-                .WithOne(e => e.ReimbursementRequest)
-                .HasForeignKey<ReimbursementRequest>(r => r.ExpenseId);
 
-            modelBuilder.Entity<Expense>()
-                .Property(e => e.Amount).HasColumnType("decimal(18,2)");
-            modelBuilder.Entity<Budget>()
-                .Property(b => b.LimitAmount).HasColumnType("decimal(18,2)");
 
     
             modelBuilder.Entity<Expense>()
