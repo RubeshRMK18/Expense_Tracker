@@ -51,10 +51,26 @@ namespace Expense_Tracker.Data
                 .HasForeignKey(b => b.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-         
+            modelBuilder.Entity<Budget>()
+            .HasOne(b => b.Category)
+           .WithMany(c => c.Budgets)
+             .HasForeignKey(b => b.CategoryId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<BudgetAlert>()
+    .HasOne(a => a.User)
+    .WithMany()
+    .HasForeignKey(a => a.UserId);
+
+            modelBuilder.Entity<BudgetAlert>()
+                .HasOne(a => a.Category)
+                .WithMany()
+                .HasForeignKey(a => a.CategoryId);
 
 
-    
+
+
+
             modelBuilder.Entity<Expense>()
                 .HasIndex(e => new { e.UserId, e.Date });
 

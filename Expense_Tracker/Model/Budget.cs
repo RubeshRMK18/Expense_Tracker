@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ExpenseTracker.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Expense_Tracker.Model
 {
